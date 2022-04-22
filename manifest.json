@@ -1,9 +1,9 @@
 {
-  "vendor": "vtex",
-  "name": "product-category-link",
-  "version": "0.2.0",
-  "title": "Product Summary Category link",
-  "description": "Product summary component to add a deeplink to a product's final category",
+  "vendor": "ibksport",
+  "name": "category-slider",
+  "version": "0.0.1",
+  "title": "Category slider for IBK",
+  "description": "Automatically pulls subcategories and displays them in a slider",
   "defaultLocale": "pt-BR",
   "builders": {
     "messages": "1.x",
@@ -30,6 +30,8 @@
     "vtex.list-context": "0.x",
     "vtex.product-list-context": "0.x",
     "vtex.search-page-context": "0.x",
+    "vtex.slider-layout": "0.x",
+    "vtex.store-graphql": "2.x",
     "vtex.structured-data": "0.x",
     "vtex.on-view": "1.x"
   },

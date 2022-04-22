@@ -1,0 +1,17 @@
+query category($id: Int) @context(sender: "vtex.menu@2.x") {
+  category(id: $id) {
+    cacheId
+    id
+    href
+    name
+    titleTag
+    children {
+      id
+      name
+      href
+      titleTag
+    }
+    __typename
+  }
+}
+ 
