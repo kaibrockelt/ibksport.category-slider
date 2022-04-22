@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "title": "Category slider for IBK",
   "description": "Automatically pulls subcategories and displays them in a slider",
-  "defaultLocale": "pt-BR",
+  "defaultLocale": "en-US",
   "builders": {
     "messages": "1.x",
     "store": "0.x",
