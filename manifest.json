@@ -1,7 +1,7 @@
 {
   "vendor": "ibksport",
   "name": "category-slider",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "title": "Category slider for IBK",
   "description": "Automatically pulls subcategories and displays them in a slider",
   "defaultLocale": "en-US",
