@@ -27,16 +27,16 @@ function CategorySlider({ classes }: Props) {
 
   //Takes child categories from the graphQL and puts them into an infocard array
   function buildSlides(children: any){
-    console.log("constructing babies");
-    console.log(children);
+
     let output=[];
     for(let i=0; i<children.length; i++){
       output.push(
         <InfoCard 
         className="ygs-ic-racing"
         callToActionText={children[i].name}
+        callToActionUrl={children[i].href}
         headline=""
-        imageUrl={"/arquivos/img-banner-1-dsk.jpg"}
+        imageUrl={"/arquivos/"+children[i].id+".jpg"}
         subhead=""
         textAlignment="center"
         textPosition="center"
@@ -45,7 +45,8 @@ function CategorySlider({ classes }: Props) {
 
       )
     }
-    //OLD imageUrl={"/arquivos/"+children[i].id+".jpg"}
+    //ACTUAL imageUrl={"/arquivos/"+children[i].id+".jpg"}
+    //MOCK  imageUrl={"/arquivos/img-banner-1-dsk.jpg"}
     return output
   }
 
