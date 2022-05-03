@@ -5,7 +5,7 @@
     "lint": "tsc --noEmit && eslint --quiet --fix --ext ts,tsx ."
   },
   "dependencies": {
-    "unorm": "^1.4.1",
+    "axios": "^0.27.2",
     "classnames": "^2.2.6",
     "debounce": "^1.2.0",
     "graphql": "^14.1.1",
@@ -15,7 +15,8 @@
     "react-apollo": "^3.1.5",
     "react-content-loader": "^3.1.2",
     "react-intersection-observer": "^8.25.2",
-    "react-intl": "^2.7.2"
+    "react-intl": "^2.7.2",
+    "unorm": "^1.4.1"
   },
   "devDependencies": {
     "@apollo/react-testing": "^3.1.4",

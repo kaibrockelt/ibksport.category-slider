@@ -21,7 +21,7 @@
     ]
   },
   "devDependencies": {
-    "@vtex/prettier-config": "^0.3.6",
+    "@vtex/prettier-config": "^1.0.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.4.0",
     "eslint-config-vtex": "^12.7.0",
@@ -31,5 +31,7 @@
     "prettier": "^2.0.5",
     "typescript": "^3.9.6"
   },
-  "dependencies": {}
+  "dependencies": {
+    "axios": "^0.27.2"
+  }
 }
