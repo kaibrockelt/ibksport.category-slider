@@ -45,37 +45,6 @@ function CategorySlider({ classes }: Props) {
     return output
   }
 
-  const searchStuff = useSearchPage()
-  const { handles } = useCssHandles(CSS_HANDLES, { classes })
-  
-  
-  
-  let slides:any='' //preconstruct,.. yeah any,.. i know,.. 
-
-  let mycat = parseInt(searchStuff.params.id, 10) || false
-  if(mycat){
-      if(searchStuff.map=="c" || searchStuff.map=="c,c" || searchStuff.map=="c,c,c") // we are on a category page, but not the final level. let's move on! 
-      {
-        if(searchStuff.map=="c,c,c"){
-          mycat= findParent(mycat);
-        }
-          //we got our category id. Let's look up the children.
-
-          const { data } = useQuery(QUERY_VALUE, {
-            variables: { id: mycat }
-          })
-
-          //let's only get productive if we really got stuff
-          if(typeof data != "undefined" && typeof data.category!= "undefined"){    
-            if(data.category.children.length>0) // we got something. let's rock'n roll.
-            {
-                  slides=buildSlides(data.category.children)
-            } 
-          }
-          // special case, we want to look for SIBLINGS! Lets figure
-      }
-} 
-
   function findParent(cat:number){
     /* console.log("finding trees") //the axios async approach. Hate it :D 
     console.log(cat)
@@ -91,7 +60,42 @@ function CategorySlider({ classes }: Props) {
     return Math.floor(cat / 100)
   }
 
-  const ipp = { desktop: 5, tablet: 3, phone: 2 }
+  const searchStuff = useSearchPage()
+  const { handles } = useCssHandles(CSS_HANDLES, { classes })
+  
+  
+  
+  let slides:any='' //preconstruct,.. yeah any,.. i know,.. 
+
+  if(searchStuff.params.id != "search"){
+      let mycat = parseInt(searchStuff.params.id, 10) || false
+      /*console.log(searchStuff.map)
+      console.log("mapping stuff");
+      console.log(searchStuff);*/
+      if(mycat){
+          if(searchStuff.map=="c" || searchStuff.map=="c,c" || searchStuff.map=="c,c,c") // we are on a category page, but not the final level. let's move on! 
+          {
+            if(searchStuff.map=="c,c,c"){
+              mycat= findParent(mycat);
+            }
+              //we got our category id. Let's look up the children.
+    
+              const { data } = useQuery(QUERY_VALUE, {
+                variables: { id: mycat }
+              })
+    
+              //let's only get productive if we really got stuff
+              if(typeof data != "undefined" && typeof data.category!= "undefined"){    
+                if(data.category.children.length>0) // we got something. let's rock'n roll.
+                {
+                      slides=buildSlides(data.category.children)
+                } 
+              }
+              // special case, we want to look for SIBLINGS! Lets figure
+          }
+
+    }
+    const ipp = { desktop: 5, tablet: 3, phone: 2 }
 
   return <SliderLayout 
   itemsPerPage={ipp}
@@ -100,6 +104,17 @@ function CategorySlider({ classes }: Props) {
   showNavigationArrows="always"
   blockClass="ygs-sslider"
   >{slides}</SliderLayout>
+  } else{
+    useQuery(QUERY_VALUE, {
+      variables: { id: 10 }
+    })
+    
+    return <div />
+  }
+ 
+  
+
+  
 }
 
 export default CategorySlider
